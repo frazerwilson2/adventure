@@ -1,3 +1,5 @@
+// mongoose config
+require('./database');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,6 +9,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var form = require('./routes/form');
 
 var app = express();
 
@@ -24,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/form', form);
+app.use('/create', form);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
